@@ -2,8 +2,6 @@ package swiggy;
 
 import com.typesafe.config.Config;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -15,14 +13,8 @@ import swiggy.config.EnvFactory;
 import swiggy.factories.DriverFactory;
 import utilities.ReadExcelData;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 @Slf4j
 public class ReachRestaurantPageTestPOI {
-
     private static Config config = EnvFactory.getInstance().getConfig();
     public static final String HOME_PAGE_URL = config.getString("HOME_PAGE_URL");
     public static WebDriver driver;

@@ -23,6 +23,7 @@
     <slf4j.version>2.0.0-alpha7</slf4j.version>
     <log4j.core>2.18.0</log4j.core>
     <extentreports.version>5.0.9</extentreports.version>
+    <extentreports.cucumber.version>2.13.0</extentreports.cucumber.version>
     <poi.version>5.2.2</poi.version>
   </properties>
 
@@ -49,6 +50,12 @@
       <artifactId>testng</artifactId>
       <version>${testng.version}</version>
       <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber6-adapter -->
+    <dependency>
+      <groupId>tech.grasshopper</groupId>
+      <artifactId>extentreports-cucumber6-adapter</artifactId>
+      <version>${extentreports.cucumber.version}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
     <dependency>
@@ -112,12 +119,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven.surefire.plugin}</version>
-      </plugin>
-      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>${maven.site.plugin}</version>
       </plugin>
     </plugins>
   </build>
