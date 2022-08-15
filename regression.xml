@@ -3,8 +3,8 @@
 <suite name="Testing Swiggy Application">
     <test name="Regression">
          <classes>
-             <class name="swiggy.AppTest"/>
              <class name="swiggy.ReachRestaurantPageTest"/>
+             <class name="com.swiggy.cucumber.stepdefinition.ReachRestaurantPageTestCucumber"/>
           </classes>
      </test> <!-- Test -->
 </suite> <!-- Suite -->
