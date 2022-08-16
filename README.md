@@ -12,11 +12,10 @@ The following requirements should be met:
 * [x] Create a page object design pattern class to store the web elements of web pages.
 * [x] Create an excel file to store the test data.
 * [x] Create a class to read/write data from excel file.
-* [ ] Create Gherkin keyword (Scenario, Given, When, Then and And).
-* [ ] Create cucumber hooks (Two types of hooks: Before and After).
-* [ ] Create cucumber integration with extent report.
-* [ ] Create Listener class to get the logs.
-* [ ] Run the project in different environments by using selenium grid.
+* [x] Create Gherkin keyword (Scenario, Given, When, Then and And).
+* [x] Create cucumber hooks (Two types of hooks: Before and After).
+* [x] Create cucumber integration with extent report.
+* [x] Run the project in different environments by using selenium grid.
 * [ ] Create and build Jenkins job for the project.
 * [ ] Run the project in Jenkins and Extent report will be generated.
 * [x] Push the code to your GitHub repositories.
@@ -46,26 +45,30 @@ In order to change testing configuration, should:
 >
 > APP_ENV: valid choices are: "app.env.develop", "app.env.staging"
 >
-> HOST: valid choices are: "host.localhost", "host.docker.container", "host.docker.selenium.grid"
+> HOST: valid choices are: "host.localhost", "host.docker.selenium.grid"
 >
-> BROWSER: valid choices are: "chrome", "firefox", "opera", "edge"
+> BROWSER: valid choices are: "chrome"
 >
 > HEADLESS: browser run mode. Valid choices are: "true", "false"
 
-### 
+### Execute tests locally
+
+Firstly edit file main > resources > choices.conf and set:
+> HOST="host.localhost"
+
+and secondly run the following command:
+> mvn clean test
 
 ### About Docker container and Docker selenium grid
 
-First should be installed [Docker](https://docs.docker.com/desktop/) software.
+Firstly should be installed [Docker](https://docs.docker.com/desktop/) software.
 
-> Edit file main > resources > choices.conf
->
-> HOST: valid choices are: "host.localhost", "host.docker.container", "host.docker.selenium.grid"
+Secondly edit file main > resources > choices.conf and set:
+> HOST="host.docker.selenium.grid"
 
-If HOST="host.localhost" the tests will run locally
+and then run the following command:
+> mvn clean test
 
-if HOST="host.docker.container" the tests will run in a docker container.
-
-if HOST="host.docker.selenium.grid" the test will run in selenium grid.
+### About Docker Jenkins
 
 

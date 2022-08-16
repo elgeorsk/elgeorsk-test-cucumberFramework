@@ -1,5 +1,6 @@
 package swiggy.factories;
 
+import org.openqa.selenium.remote.RemoteWebDriver;
 import swiggy.choices.Browser;
 import swiggy.choices.Host;
 import swiggy.config.EnvFactory;
@@ -26,8 +27,6 @@ public class DriverFactory {
         switch (HOST) {
             case LOCALHOST:
                 return getLocalWebDriver();
-            case DOCKER_CONTAINER:
-                // fall through - same options apply.
             case DOCKER_SELENIUM_GRID:
                 return getRemoteWebDriver();
             default:
@@ -50,7 +49,7 @@ public class DriverFactory {
     private static WebDriver getRemoteWebDriver() {
         switch (BROWSER) {
             case CHROME:
-                // fall - through. Same method for all browsers.
+                return new RemoteWebDriver(URLFactory.getHostURL(HOST), CapabilitiesFactory.getCapabilities(BROWSER));
             default:
                 throw new IllegalStateException(String.format("%s is not a valid browser choice. Pick your browser from %s.", BROWSER, java.util.Arrays.asList(BROWSER.values())));
         }

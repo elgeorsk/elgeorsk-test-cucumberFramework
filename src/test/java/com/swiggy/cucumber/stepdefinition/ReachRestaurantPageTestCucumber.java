@@ -23,7 +23,7 @@ public class ReachRestaurantPageTestCucumber {
     @Given("User is on page \"https://www.swiggy.com\"$")
     public void launchSwiggyApp(){
         landingPg = Hooks.landingPg;
-        landingPg.driver.get(HOME_PAGE_URL);
+        landingPg.getWebDriver().get(HOME_PAGE_URL);
         Assert.assertEquals(excelData.ReadCellData(1,0), landingPg.driver.getTitle());
     }
 

@@ -4,9 +4,7 @@ import com.typesafe.config.Config;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjects.LandingPage;
 import pageObjects.RestaurantsPage;
 import swiggy.config.EnvFactory;
@@ -14,7 +12,7 @@ import swiggy.factories.DriverFactory;
 
 @Slf4j
 public class ReachRestaurantPageTest {
-    private static Config config = EnvFactory.getInstance().getConfig();
+    private static final Config config = EnvFactory.getInstance().getConfig();
     public static final String HOME_PAGE_URL = config.getString("HOME_PAGE_URL");
     public static WebDriver driver;
 
@@ -22,7 +20,7 @@ public class ReachRestaurantPageTest {
 
     public static RestaurantsPage restaurantsPg;
 
-    @BeforeTest
+    @BeforeClass
     public void setup() {
         driver = DriverFactory.getDriver();
         landingPg = new LandingPage(driver);
@@ -31,7 +29,7 @@ public class ReachRestaurantPageTest {
 
     @Test (priority=1)
     void launchSwiggyApp(){
-        landingPg.driver.get(HOME_PAGE_URL);
+        landingPg.getWebDriver().get(HOME_PAGE_URL);
         Assert.assertEquals("Order food online from India's best food delivery service. Order from restaurants near you", driver.getTitle());
     }
 
@@ -53,7 +51,7 @@ public class ReachRestaurantPageTest {
         Assert.assertEquals(restaurantsPg.getWebElement(restaurantsPg.header.location).getAttribute("innerText"), "Delhi, India");
     }
 
-    @AfterTest
+    @AfterClass
     public void tearDown() {
         driver.close();
         try{

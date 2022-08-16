@@ -4,9 +4,7 @@ import com.typesafe.config.Config;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjects.LandingPage;
 import pageObjects.RestaurantsPage;
 import swiggy.config.EnvFactory;
@@ -15,7 +13,7 @@ import utilities.ReadExcelData;
 
 @Slf4j
 public class ReachRestaurantPageTestPOI {
-    private static Config config = EnvFactory.getInstance().getConfig();
+    private static final Config config = EnvFactory.getInstance().getConfig();
     public static final String HOME_PAGE_URL = config.getString("HOME_PAGE_URL");
     public static WebDriver driver;
 
@@ -25,7 +23,7 @@ public class ReachRestaurantPageTestPOI {
 
     public static ReadExcelData excelData = new ReadExcelData();
 
-    @BeforeTest
+    @BeforeClass
     public void setup() {
         driver = DriverFactory.getDriver();
         landingPg = new LandingPage(driver);
@@ -34,7 +32,7 @@ public class ReachRestaurantPageTestPOI {
 
     @Test (priority=1)
     void launchSwiggyApp(){
-        landingPg.driver.get(HOME_PAGE_URL);
+        landingPg.getWebDriver().get(HOME_PAGE_URL);
         Assert.assertEquals(excelData.ReadCellData(1,0), driver.getTitle());
     }
 
@@ -56,7 +54,7 @@ public class ReachRestaurantPageTestPOI {
         Assert.assertEquals(restaurantsPg.getWebElement(restaurantsPg.header.location).getAttribute("innerText"), excelData.ReadCellData(1,2));
     }
 
-    @AfterTest
+    @AfterClass
     public void tearDown() {
         driver.close();
         try{

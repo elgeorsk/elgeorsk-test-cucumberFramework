@@ -19,4 +19,8 @@ public class LandingPage extends BasePage{
         this.driver = driver;
     }
 
+    public WebDriver getWebDriver(){
+        return this.driver;
+    }
+
 }
