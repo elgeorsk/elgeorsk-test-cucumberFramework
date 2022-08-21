@@ -61,14 +61,22 @@ and secondly run the following command:
 
 ### About Docker container and Docker selenium grid
 
-Firstly should be installed [Docker](https://docs.docker.com/desktop/) software.
+First should [Docker](https://docs.docker.com/desktop/) software to be installed.
 
-Secondly edit file main > resources > choices.conf and set:
+Then edit file main > resources > choices.conf and set:
 > HOST="host.docker.selenium.grid"
+
+Go to the project folder and run the following command:
+
+> docker-compose -f docker-compose-v3.yml up
 
 and then run the following command:
 > mvn clean test
 
 ### About Docker Jenkins
 
+From the previous sector Docker should be available and the following command to be executed:
 
+> docker-compose -f docker-compose-v3.yml up
+
+After follow the nice [tutorial](https://www.section.io/engineering-education/building-a-java-application-with-jenkins-in-docker/) for Jenkins Maven configuration. 
