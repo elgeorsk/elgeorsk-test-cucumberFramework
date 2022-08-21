@@ -16,8 +16,8 @@ The following requirements should be met:
 * [x] Create cucumber hooks (Two types of hooks: Before and After).
 * [x] Create cucumber integration with extent report.
 * [x] Run the project in different environments by using selenium grid.
-* [ ] Create and build Jenkins job for the project.
-* [ ] Run the project in Jenkins and Extent report will be generated.
+* [x] Create and build Jenkins job for the project.
+* [x] Run the project in Jenkins and Extent report will be generated.
 * [x] Push the code to your GitHub repositories.
 
 ## Introduction
@@ -79,4 +79,4 @@ From the previous sector Docker should be available and the following command to
 
 > docker-compose -f docker-compose-v3.yml up
 
-After follow the nice [tutorial](https://www.section.io/engineering-education/building-a-java-application-with-jenkins-in-docker/) for Jenkins Maven configuration. 
+After follow the nice [tutorial](https://www.section.io/engineering-education/building-a-java-application-with-jenkins-in-docker/) for Jenkins Maven configuration.
